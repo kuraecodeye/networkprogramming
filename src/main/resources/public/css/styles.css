@@ -1,0 +1,29 @@
+
+.message-login__container {
+    @extend .container
+    max-width: 300px;
+    height: 100%;
+}
+
+.message-login__login-text {
+
+}
+.message-login__login-input {
+    padding: 5px;
+}
+
+.message-login__login-submit {
+    padding: 5px;
+}
+
+.message-input_container {
+    padding-bottom: 30px;
+}
+
+.message__container {
+    padding: 5px;
+}
+
+.word-wrap{
+    word-wrap: break-word;
+}

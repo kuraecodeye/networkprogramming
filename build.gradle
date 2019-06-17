@@ -17,6 +17,23 @@ dependencies {
     compile 'com.fasterxml.jackson.module:jackson-module-kotlin:2.9.9'
 }
 
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+                'Implementation-Version': version,
+                'Main-Class': 'ru.kuraecode.networkprogramming.ApplicationKt'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+tasks {
+    "build" {
+        dependsOn(fatJar)
+    }
+}
+
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
